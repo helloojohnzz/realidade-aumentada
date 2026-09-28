@@ -1,3 +1,26 @@
+// Registra o componente ANTES da cena ser renderizada
+AFRAME.registerComponent('ar-event-listener', {
+    init: function () {
+        const scene = this.el;
+        const status = document.querySelector("#status");
+        const badge = document.querySelector("#badge");
+
+        // Escuta quando a câmera liga
+        scene.addEventListener("arReady", () => {
+            status.textContent = "Câmera pronta. Aponte para a imagem.";
+            badge.textContent = "PROCURANDO ALVO";
+            console.log("EVENTO: arReady disparado!"); // Para você ver no Eruda
+        });
+
+        // Escuta se houver erro
+        scene.addEventListener("arError", () => {
+            status.textContent = "Erro ao ligar a câmera.";
+            badge.textContent = "ERRO";
+            console.log("EVENTO: arError disparado!");
+        });
+    }
+});
+
 document.addEventListener(
     "DOMContentLoaded",
     () => {
