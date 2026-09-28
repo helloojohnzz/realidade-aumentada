@@ -18,8 +18,9 @@
     ========================================================= 
     -->
     <script src="https://aframe.io/releases/1.5.0/aframe.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/mind-ar@1.2.5/dist/mindar-image-aframe.prod.js">
-    </script>
+    <script src="https://cdn.jsdelivr.net/npm/mind-ar@1.2.5/dist/mindar-image-aframe.prod.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/eruda"></script>
+    <script>eruda.init();</script>
 </head>
 
 <body>
@@ -102,16 +103,11 @@ Não há background preto forçado.
     uiLoading: yes;
     uiScanning: yes;
     uiError: yes;
-    " 
-    color-space="sRGB" 
-    renderer="
+    " color-space="sRGB" renderer="
     colorManagement: true;
     physicallyCorrectLights: true;
     alpha: true;
-    " 
-    vr-mode-ui="enabled: false" 
-    device-orientation-permission-ui="enabled: false" 
-    embedded>
+    " vr-mode-ui="enabled: false" device-orientation-permission-ui="enabled: false" embedded>
         <!-- Câmera utilizada pelo MindAR/A-Frame. -->
         <a-camera id="ar-camera" position="0 0 0" look-controls="enabled: false">
         </a-camera>
