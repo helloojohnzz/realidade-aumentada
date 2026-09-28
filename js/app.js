@@ -6,23 +6,12 @@ AFRAME.registerComponent('ar-event-listener', {
         const badge = document.querySelector("#badge");
 
         badge.addEventListener("click", () => {
+            alert("Botão clicado!"); // Aparecerá um pop-up se o clique funcionar
             status.textContent = "Acessando câmera...";
             badge.textContent = "INICIANDO...";
-            badge.disabled = true; // Evita cliques duplos
+            badge.disabled = true;
 
-            // Dispara o MindAR manualmente
             scene.systems["mindar-image-system"].start();
-        });
-
-        // 2. Os eventos que você já tinha continuam normais
-        scene.addEventListener("arReady", () => {
-            status.textContent = "Câmera pronta. Aponte para a imagem do torno.";
-            badge.textContent = "PROCURANDO ALVO";
-        });
-
-        scene.addEventListener("arError", () => {
-            status.textContent = "Permissão negada ou erro na câmera.";
-            badge.textContent = "ERRO";
         });
 
         // Escuta quando a câmera liga
