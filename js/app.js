@@ -5,8 +5,9 @@ AFRAME.registerComponent('ar-event-listener', {
         const status = document.querySelector("#status");
         const badge = document.querySelector("#badge");
 
-        badge.addEventListener("click", () => {
-            alert("Botão clicado!"); // Aparecerá um pop-up se o clique funcionar
+        badge.addEventListener("pointerup", (event) => {
+            event.preventDefault(); // Evita comportamentos duplos no mobile
+
             status.textContent = "Acessando câmera...";
             badge.textContent = "INICIANDO...";
             badge.disabled = true;
