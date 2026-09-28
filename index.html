@@ -36,9 +36,10 @@
     <header id="hud">
         <div class="hud-text">
             <strong>TORNO CNC • MANUAL INTERATIVO</strong>
-            <span id="status">Inicializando a câmera...</span>
+            <span id="status">Toque em INICIAR para habilitar a câmera</span>
         </div>
-        <span id="badge">INICIANDO</span>
+        <!-- Transformado em botão -->
+        <button id="badge" style="cursor: pointer; border: none;">▶ INICIAR</button>
     </header>
 
     <!-- =========================================================
@@ -97,9 +98,10 @@ O arquivo torno-cnc.mind JÁ existente no repositório
 continua sendo utilizado.
 Não há background preto forçado.
 ========================================================= -->
-    <a-scene id="ar-scene" ar-event-listener mindar-image="imageTargetSrc: assets/targets/torno-cnc-targets.mind;"
-        color-space="sRGB" renderer="colorManagement: true;" vr-mode-ui="enabled: false"
-        device-orientation-permission-ui="enabled: false" embedded>
+    <a-scene id="ar-scene" ar-event-listener
+        mindar-image="imageTargetSrc: assets/targets/torno-cnc-targets.mind; autoStart: false;" color-space="sRGB"
+        renderer="colorManagement: true;" vr-mode-ui="enabled: false" device-orientation-permission-ui="enabled: false"
+        embedded>
         <!-- Câmera utilizada pelo MindAR/A-Frame. -->
         <a-camera id="ar-camera" position="0 0 0" look-controls="enabled: false">
         </a-camera>
